@@ -17,5 +17,8 @@ module.exports = {
       borderRadius: ["hover"],
     },
   },
-  plugins: [],
+  plugins: [
+    // require("@tailwindcss/forms"),
+    // ...
+  ],
 };
