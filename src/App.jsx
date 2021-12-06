@@ -1,5 +1,13 @@
+import { BrowserRouter as Router } from "react-router-dom";
+
+import AppRoutes from "./router";
+
 function App() {
-  return <div className="bg-yellow-500">Hello world</div>;
+  return (
+    <Router>
+      <AppRoutes />
+    </Router>
+  );
 }
 
 export default App;
