@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
+import useSignupForm from "@/contexts/signupForm";
+
 import Button from "@/components/ui/Button";
 import Card from "@components/ui/Card";
 import Input from "@components/ui/Input";
@@ -14,6 +16,7 @@ const schema = yup.object({
 
 export default function SocialForm() {
   const navigate = useNavigate();
+  const { social, setSocial } = useSignupForm();
   const {
     register,
     handleSubmit,
@@ -21,7 +24,7 @@ export default function SocialForm() {
   } = useForm({ resolver: yupResolver(schema) });
 
   const submitHandler = (data) => {
-    console.log(data);
+    setSocial(data);
     navigate("/review");
   };
 
@@ -39,6 +42,7 @@ export default function SocialForm() {
             className="mb-2"
             {...register("facebook")}
             error={errors.facebook?.message}
+            defaultValue={social.facebook}
           ></Input>
           <Input
             type="text"
@@ -46,6 +50,7 @@ export default function SocialForm() {
             label="What's your twitter"
             {...register("twitter")}
             error={errors.twitter?.message}
+            defaultValue={social.twitter}
           ></Input>
         </div>
         <div className="flex justify-end w-full mt-4">

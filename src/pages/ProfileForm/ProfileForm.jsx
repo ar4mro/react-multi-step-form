@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
+import useSignupForm from "@/contexts/signupForm";
+
 import Button from "@/components/ui/Button";
 import Card from "@components/ui/Card";
 import Input from "@components/ui/Input";
@@ -17,6 +19,7 @@ const schema = yup.object({
 
 export default function ProfileForm() {
   const navigate = useNavigate();
+  const { profile, setProfile } = useSignupForm();
   const {
     register,
     handleSubmit,
@@ -24,7 +27,7 @@ export default function ProfileForm() {
   } = useForm({ resolver: yupResolver(schema) });
 
   const submitHandler = (data) => {
-    console.log(data);
+    setProfile(data);
     navigate("/social");
   };
 
@@ -42,6 +45,7 @@ export default function ProfileForm() {
             className="mb-2"
             {...register("name")}
             error={errors.name?.message}
+            defaultValue={profile.name}
           ></Input>
           <Input
             type="email"
@@ -49,6 +53,7 @@ export default function ProfileForm() {
             label="What's your email"
             {...register("email")}
             error={errors.email?.message}
+            defaultValue={profile.email}
           ></Input>
         </div>
         <div className="flex justify-end w-full mt-4">
