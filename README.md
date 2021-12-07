@@ -1,4 +1,4 @@
-## React Animated Chat Box
+## React Multi Step Form
 
 An animated multiple step form.
 
