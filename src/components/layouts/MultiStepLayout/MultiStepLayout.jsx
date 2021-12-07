@@ -1,4 +1,5 @@
 import { Outlet } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 
 import { SignupFormProvider } from "@/contexts/signupForm/context.jsx";
 import StepLinks from "./StepLinks/StepLinks";
@@ -11,7 +12,9 @@ export default function MultiStepLayout({ steps }) {
       <div className="flex flex-col w-10/12 sm:6/12 xl:w-5/12">
         <StepLinks steps={steps} />
         <SignupFormProvider>
-          <Outlet />
+          <AnimatePresence>
+            <Outlet />
+          </AnimatePresence>
         </SignupFormProvider>
       </div>
     </div>

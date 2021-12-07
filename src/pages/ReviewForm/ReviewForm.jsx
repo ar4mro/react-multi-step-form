@@ -1,5 +1,5 @@
 import Button from "@/components/ui/Button";
-import Card from "@components/ui/Card";
+import AnimatedCard from "@components/ui/AnimatedCard";
 import Input from "@components/ui/Input/Input";
 
 import useSignupForm from "@/contexts/signupForm";
@@ -13,7 +13,7 @@ export default function ReviewForm() {
   };
 
   return (
-    <Card>
+    <AnimatedCard>
       <form onSubmit={submitHandler}>
         <h2 className="text-lg font-medium leading-6 text-gray-600">
           Review your info
@@ -56,6 +56,6 @@ export default function ReviewForm() {
           <Button type="submit">Submit All Info</Button>
         </div>
       </form>
-    </Card>
+    </AnimatedCard>
   );
 }

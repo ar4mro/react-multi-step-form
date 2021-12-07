@@ -6,7 +6,7 @@ import * as yup from "yup";
 import useSignupForm from "@/contexts/signupForm";
 
 import Button from "@/components/ui/Button";
-import Card from "@components/ui/Card";
+import AnimatedCard from "@components/ui/AnimatedCard";
 import Input from "@components/ui/Input";
 
 const schema = yup.object({
@@ -32,7 +32,7 @@ export default function ProfileForm() {
   };
 
   return (
-    <Card>
+    <AnimatedCard>
       <form onSubmit={handleSubmit(submitHandler)} noValidate>
         <h2 className="text-lg font-medium leading-6 text-gray-600">
           Tell us about yourself
@@ -60,6 +60,6 @@ export default function ProfileForm() {
           <Button type="submit">Next Step</Button>
         </div>
       </form>
-    </Card>
+    </AnimatedCard>
   );
 }
