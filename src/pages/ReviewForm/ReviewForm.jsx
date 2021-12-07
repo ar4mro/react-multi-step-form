@@ -2,7 +2,11 @@ import Button from "@/components/ui/Button";
 import Card from "@components/ui/Card";
 import Input from "@components/ui/Input/Input";
 
+import useSignupForm from "@/contexts/signupForm";
+
 export default function ReviewForm() {
+  const { profile, social } = useSignupForm();
+
   return (
     <Card>
       <h2 className="text-lg font-medium leading-6 text-gray-600">
@@ -15,7 +19,7 @@ export default function ReviewForm() {
           label="Name"
           className="mb-2"
           disabled={true}
-          value="Thor Coder"
+          value={profile?.name}
         ></Input>
         <Input
           type="email"
@@ -23,7 +27,7 @@ export default function ReviewForm() {
           label="Email"
           className="mb-2"
           disabled={true}
-          value="thor@coder.com"
+          value={profile?.email}
         ></Input>
         <Input
           type="text"
@@ -31,7 +35,7 @@ export default function ReviewForm() {
           label="Facebook"
           className="mb-2"
           disabled={true}
-          value="thorcoder"
+          value={social?.facebook}
         ></Input>
         <Input
           type="text"
@@ -39,7 +43,7 @@ export default function ReviewForm() {
           label="Twitter"
           className="mb-2"
           disabled={true}
-          value="thorcoder"
+          value={social?.twitter}
         ></Input>
       </div>
       <div className="flex justify-end w-full mt-4">
