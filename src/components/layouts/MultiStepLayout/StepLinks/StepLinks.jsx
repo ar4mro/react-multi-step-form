@@ -23,7 +23,7 @@ export default function StepLinks({ steps }) {
               {index !== 0 && arrowSvg}
               <Link
                 to={step.link}
-                className="ml-4 text-sm font-medium text-purple-700 hover:text-purple-500"
+                className="ml-4 text-sm font-medium text-gray-500 hover:text-gray-600"
               >
                 {step.name}
               </Link>
